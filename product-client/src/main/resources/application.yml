@@ -1,0 +1,17 @@
+server:
+  port: 8762
+spring:
+  application:
+    name: product-client
+  redis:
+    host: 47.103.202.218
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-wait: 3000
+        max-idle: 8
+eureka:
+  client:
+    defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
