@@ -1,0 +1,4 @@
+minio:
+  endpoint: http://47.103.22.99:9000/minio
+  accessKey: admin
+  secretKey: 12345678
