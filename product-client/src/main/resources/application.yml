@@ -22,3 +22,4 @@ eureka:
     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+

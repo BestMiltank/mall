@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miltank.fileclient.mapper.FileMapper">
+<!--    <select id="GetUserByID" parameterType="int" resultType="com.test.springtest.dao.MUser">-->
+<!--        select * from `student` where id = #{id}-->
+<!--    </select>-->
+
+    <insert id="uploadFile" parameterType="com.miltank.fileclient.pojo.FileInfo">
+        insert into file_info(id,name,class_name,relation_id,create_time,update_time,deleted) values
+        (#{id},#{name},#{className},#{relationId},#{createTime},#{updateTime},#{deleted})
+    </insert>
+</mapper>
