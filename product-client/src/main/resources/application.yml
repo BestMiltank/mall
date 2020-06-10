@@ -20,6 +20,6 @@ spring:
 eureka:
   client:
     defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
-mybatis:
+mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 

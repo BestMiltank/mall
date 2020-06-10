@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-@MapperScan("com.miltank.productclient.mapper")
+@MapperScan(basePackages = {"com.miltank.productclient.mapper"})
 public class ProductClientApplication {
 
     public static void main(String[] args) {

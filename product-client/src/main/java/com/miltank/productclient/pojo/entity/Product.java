@@ -1,9 +1,15 @@
 package com.miltank.productclient.pojo.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.util.Date;
 
+@TableName("product")
 public class Product {
+    @TableId(type = IdType.UUID)
     private String id;
     private String name;
     private String detail;
