@@ -28,8 +28,8 @@ public class FileController {
     }
 
     @GetMapping("/download/{id}")
-    @ApiOperation(value = "文件下载",notes = "文件下载")
-    public String downloadFile(@PathVariable String id){
-        return fileService.getObjectURL("file",id,1000);
+    @ApiOperation(value = "文件下载", notes = "文件下载")
+    public void downloadFile(@PathVariable String id, HttpServletResponse response) {
+        fileService.getObject("file", id, response);
     }
 }

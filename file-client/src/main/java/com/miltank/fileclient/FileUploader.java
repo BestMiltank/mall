@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.security.NoSuchAlgorithmException;
 import java.security.InvalidKeyException;
 
+import io.minio.PutObjectOptions;
 import org.xmlpull.v1.XmlPullParserException;
 
 import io.minio.MinioClient;
@@ -25,9 +26,8 @@ public class FileUploader {
                 // 创建一个名为asiatrip的存储桶，用于存储照片的zip文件。
                 minioClient.makeBucket("miltank");
             }
-
             // 使用putObject上传一个文件到存储桶中。
-            minioClient.putObject("miltank", "asiaphotos.zip", "D:\\points.txt");
+//            minioClient.putObject("miltank", "asiaphotos.zip", "points.txt",new PutObjectOptions());
             InputStream is = new FileInputStream("");
         } catch (MinioException e) {
             System.out.println("Error occurred: " + e);
