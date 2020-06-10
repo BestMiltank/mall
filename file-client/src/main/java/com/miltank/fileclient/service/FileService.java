@@ -18,9 +18,16 @@ public class FileService {
 
     public String uploadFile(MultipartFile file) {
         try {
+            String originalname = file.getOriginalFilename();
+            String form = "";
+            if (originalname != null) {
+                int index = originalname.lastIndexOf(".");
+                if (index > 0) form = originalname.substring(index);
+                else form = "";
+            }
             String id = UUID.randomUUID().toString();
-            client.putObject("file", id, file.getInputStream(), new PutObjectOptions(file.getInputStream().available(),-1));
-            return id;
+            client.putObject("file", id + form, file.getInputStream(), new PutObjectOptions(file.getInputStream().available(), -1));
+            return id + form;
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -45,7 +52,7 @@ public class FileService {
         }
     }
 
-    public String getObjectURL(String bucketName, String objectName, Integer expires){
+    public String getObjectURL(String bucketName, String objectName, Integer expires) {
         try {
             return client.presignedGetObject(bucketName, objectName, expires);
         } catch (Exception e) {
