@@ -30,7 +30,7 @@ public class ProductController {
     @GetMapping("/{id}")
     @ApiOperation(value = "根据id查询商品", notes = "根据id查询商品")
     public Product queryOne(@PathVariable String id) {
-        return productService.getById(id);
+        return productService.queryOneById(id);
     }
 
 }

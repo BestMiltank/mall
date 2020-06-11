@@ -13,20 +13,20 @@ public class LogConfig {
     @Value("${server.port}")
     private String port;
 
-    @Pointcut("execution(public * com.miltank.productclient.controller.*.*(..))")
-    public void pointCut(){
-
-    }
-
-    @Around("pointCut()")
-    private String doAround(ProceedingJoinPoint joinPoint){
-        StringBuffer result = new StringBuffer();
-        try {
-            result.append(port+"\n");
-            result.append(joinPoint.proceed());
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-        return result.toString();
-    }
+//    @Pointcut("execution(public * com.miltank.productclient.controller.*.*(..))")
+//    public void pointCut(){
+//
+//    }
+//
+//    @Around("pointCut()")
+//    private String doAround(ProceedingJoinPoint joinPoint){
+//        StringBuffer result = new StringBuffer();
+//        try {
+//            result.append(port+"\n");
+//            result.append(joinPoint.proceed());
+//        } catch (Throwable throwable) {
+//            throwable.printStackTrace();
+//        }
+//        return result.toString();
+//    }
 }

@@ -19,7 +19,8 @@ spring:
         max-idle: 8
 eureka:
   client:
-    defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    service-url:
+      defaultZone: http://47.103.202.218:8761/eureka
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
 
