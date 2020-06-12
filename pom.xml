@@ -8,6 +8,7 @@
         <module>user-client</module>
         <module>file-client</module>
         <module>product-client</module>
+        <module>uaa-client</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
