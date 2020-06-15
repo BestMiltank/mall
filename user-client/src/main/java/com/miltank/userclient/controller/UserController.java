@@ -1,5 +1,6 @@
 package com.miltank.userclient.controller;
 
+import com.miltank.userclient.dto.UserLoginDTO;
 import com.miltank.userclient.pojo.User;
 import com.miltank.userclient.service.UserService;
 import io.swagger.annotations.Api;
@@ -27,12 +28,18 @@ public class UserController {
 //        return userService.getOne(wrapper);
 //    }
 
-    @PostMapping
+    @PostMapping("/register")
     @ApiOperation(value = "注册",notes = "注册")
     public User register(@RequestBody User user){
         if(StringUtils.isNotBlank(user.getUsername()) && StringUtils.isNotBlank(user.getPassword())){
             return userService.addUser(user.getUsername(), user.getPassword());
         }
         return null;
+    }
+
+    @PostMapping("/login")
+    @ApiOperation(value = "登录",notes = "登录")
+    public UserLoginDTO login(@RequestParam("username") String username , @RequestParam("password") String password){
+        return userService.login(username,password);
     }
 }

@@ -18,7 +18,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("","").permitAll()
+                .antMatchers("/user/register","/user/login",
+                        "/v2/api-docs",//swagger api json
+                        "/swagger-resources/configuration/ui",//用来获取支持的动作
+                        "/swagger-resources",//用来获取api-docs的URI
+                        "/swagger-resources/configuration/security",//安全选项
+                        "/swagger-ui.html").permitAll()
                 .antMatchers("/**").authenticated();
     }
 

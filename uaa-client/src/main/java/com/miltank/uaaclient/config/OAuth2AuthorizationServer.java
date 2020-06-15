@@ -33,9 +33,9 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
      */
     @Bean
     public JwtAccessTokenConverter jwtTokenEnhancer() {
-        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("miltank.jks"),"sjj123".toCharArray());
+        KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("fzp-jwt.jks"), "fzp123".toCharArray());
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        converter.setKeyPair(keyStoreKeyFactory.getKeyPair("miltank"));
+        converter.setKeyPair(keyStoreKeyFactory.getKeyPair("fzp-jwt"));
         return converter;
     }
 
@@ -58,9 +58,9 @@ public class OAuth2AuthorizationServer extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("user-service")
+                .withClient("user-client")
                 .secret("123456")
-                .scopes("service")
+                .scopes("all")
                 //设置支持[密码模式、授权码模式、token刷新]
                 .authorizedGrantTypes("password"/*,"authorization_code"*/,"refresh_token")
                 .accessTokenValiditySeconds(3600);

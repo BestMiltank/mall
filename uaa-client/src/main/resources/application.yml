@@ -11,8 +11,6 @@ spring:
       ddl-auto: update
     show-sql: true
 server:
-  servlet:
-    context-path: /uaa
   port: 7000
 eureka:
   client:

@@ -20,8 +20,8 @@ import java.util.Objects;
  * @date 2020-06-12 16:33
  */
 @Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+//@EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserServiceDetail userDetailsService;

@@ -8,9 +8,16 @@ spring:
     username: root
     password: root
     type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 eureka:
   client:
     service-url:
       defaultZone: http://47.103.202.218:8761/eureka
 mybatis-plus:
   mapper-locations: classpath:mapper/*.xml
+feign:
+  hystrix:
+    enabled: true
