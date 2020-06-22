@@ -1,9 +1,7 @@
 package com.miltank.fileclient.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.miltank.fileclient.pojo.FileInfo;
-import org.apache.ibatis.annotations.Mapper;
 
-@Mapper
-public interface FileMapper {
-    public void uploadFile(FileInfo fileInfo);
+public interface FileMapper extends BaseMapper<FileInfo> {
 }

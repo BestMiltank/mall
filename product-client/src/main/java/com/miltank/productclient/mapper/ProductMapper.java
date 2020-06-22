@@ -1,6 +1,9 @@
 package com.miltank.productclient.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.miltank.productclient.pojo.entity.Product;
+import org.apache.ibatis.annotations.Mapper;
 
-public interface ProductMapper extends MyMapper<Product> {
+@Mapper
+public interface ProductMapper extends BaseMapper<Product> {
 }

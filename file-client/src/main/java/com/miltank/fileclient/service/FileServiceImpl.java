@@ -1,9 +1,14 @@
 package com.miltank.fileclient.service;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.miltank.fileclient.mapper.FileMapper;
+import com.miltank.fileclient.pojo.FileInfo;
+import com.miltank.fileclient.service.interfaces.FileService;
 import io.minio.MinioClient;
 import io.minio.PutObjectOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
@@ -12,7 +17,8 @@ import java.io.InputStream;
 import java.util.UUID;
 
 @Service
-public class FileService {
+@Transactional
+public class FileServiceImpl extends ServiceImpl<FileMapper,FileInfo> implements FileService {
     @Autowired
     private MinioClient client;
 

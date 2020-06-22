@@ -49,7 +49,7 @@ public class UserService implements UserDetailsService {
             return null;
         }
         UserLoginDTO userLoginDTO=new UserLoginDTO();
-        userLoginDTO.setJwt(jwt);
+        userLoginDTO.setToken(jwt.getAccess_token());
         userLoginDTO.setUser(user);
         return userLoginDTO;
     }

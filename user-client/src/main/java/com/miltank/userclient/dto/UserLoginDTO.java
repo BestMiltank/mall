@@ -1,6 +1,5 @@
 package com.miltank.userclient.dto;
 
-import com.miltank.userclient.pojo.JWT;
 import com.miltank.userclient.pojo.User;
 
 /**
@@ -8,16 +7,16 @@ import com.miltank.userclient.pojo.User;
  */
 public class UserLoginDTO {
 
-    private JWT jwt;
+    private String token;
 
     private User user;
 
-    public JWT getJwt() {
-        return jwt;
+    public String getToken() {
+        return token;
     }
 
-    public void setJwt(JWT jwt) {
-        this.jwt = jwt;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public User getUser() {

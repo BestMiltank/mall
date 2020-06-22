@@ -1,12 +1,19 @@
 package com.miltank.fileclient.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.util.Date;
 
+@TableName("file_info")
 public class FileInfo {
+    @TableId(type = IdType.UUID)
     private String id;
     private String name;
     private String className;
     private String relationId;
+    private int isCover;
 
     private Date createTime;
     private Date updateTime;
@@ -14,6 +21,13 @@ public class FileInfo {
 
     public FileInfo(){
 
+    }
+
+    public FileInfo(String name, String className, String relationId, int isCover) {
+        this.name = name;
+        this.className = className;
+        this.relationId = relationId;
+        this.isCover = isCover;
     }
 
     public String getId() {
@@ -70,5 +84,13 @@ public class FileInfo {
 
     public void setDeleted(int deleted) {
         this.deleted = deleted;
+    }
+
+    public int getIsCover() {
+        return isCover;
+    }
+
+    public void setIsCover(int isCover) {
+        this.isCover = isCover;
     }
 }

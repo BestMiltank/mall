@@ -28,11 +28,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.miltank</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.3.7</version>

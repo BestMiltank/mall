@@ -20,13 +20,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/{id}")
-//    @ApiOperation(value = "查询用户详情", notes = "查询用户详情")
-//    public User queryUserDetail(@PathVariable String id){
-//        QueryWrapper<User> wrapper = new QueryWrapper<>();
-//        wrapper.eq("deleted",0).eq("id",id);
-//        return userService.getOne(wrapper);
-//    }
 
     @PostMapping("/register")
     @ApiOperation(value = "注册",notes = "注册")
@@ -37,7 +30,7 @@ public class UserController {
         return null;
     }
 
-    @PostMapping("/login")
+    @GetMapping("/login")
     @ApiOperation(value = "登录",notes = "登录")
     public UserLoginDTO login(@RequestParam("username") String username , @RequestParam("password") String password){
         return userService.login(username,password);

@@ -20,7 +20,7 @@ public class ProductController {
 
     @GetMapping("/page")
     @ApiOperation(value = "分页查询全部信息", notes = "分页查询全部信息")
-    public IPage<Product> queryProducts(Integer pageNum,Integer pageSize){
+    public IPage<Product> queryProducts(Integer pageNum, Integer pageSize) {
         IPage<Product> page = new Page<>();
         page.setSize(pageSize);
         page.setCurrent(pageNum);
@@ -30,7 +30,13 @@ public class ProductController {
     @GetMapping("/{id}")
     @ApiOperation(value = "根据id查询商品", notes = "根据id查询商品")
     public Product queryOne(@PathVariable String id) {
-        return productService.queryOneById(id);
+        return productService.getById(id);
+    }
+
+    @PostMapping
+    @ApiOperation(value = "上架商品", notes = "上架商品")
+    public void addProduct(@RequestBody Product product) {
+        productService.addProduct(product);
     }
 
 }

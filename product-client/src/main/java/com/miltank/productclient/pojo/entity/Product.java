@@ -2,10 +2,13 @@ package com.miltank.productclient.pojo.entity;
 
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.miltank.fileclient.pojo.FileInfo;
 
 import java.util.Date;
+import java.util.List;
 
 @TableName("product")
 public class Product {
@@ -16,10 +19,14 @@ public class Product {
     private String tel;
     private Integer amount;
     private String seller;
+    private String cover;
 
     private Date createTime;
     private Date updateTime;
     private int deleted;
+
+    @TableField(exist = false)
+    private List<FileInfo> files;
 
     public String getId() {
         return id;
@@ -91,5 +98,21 @@ public class Product {
 
     public void setDeleted(int deleted) {
         this.deleted = deleted;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
+    }
+
+    public List<FileInfo> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<FileInfo> files) {
+        this.files = files;
     }
 }
