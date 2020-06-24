@@ -1,5 +1,6 @@
 package com.miltank.fileclient.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.miltank.fileclient.pojo.FileInfo;
 import com.miltank.fileclient.service.interfaces.FileService;
 import io.swagger.annotations.Api;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-
+import java.util.List;
 
 /**
  * @author shenjj
@@ -35,8 +36,21 @@ public class FileController {
     }
 
     @PostMapping
-    @ApiOperation(value = "插入存储记录", notes = "插入存储记录")
-    public void addFileInfo(@RequestBody FileInfo fileInfo){
+    public void addFileInfo(@RequestBody FileInfo fileInfo) {
         fileService.save(fileInfo);
+    }
+
+    @PostMapping("/list")
+    public void addFileInfo(@RequestBody List<FileInfo> files) {
+        fileService.saveBatch(files);
+    }
+
+    @GetMapping
+    @ApiOperation(value = "文件记录", notes = "文件记录")
+    public List<FileInfo> queryRelationFiles(String className, String relationId) {
+        QueryWrapper<FileInfo> wrappers = new QueryWrapper<>();
+        wrappers.eq("class_name", className)
+                .eq("relation_id", relationId);
+        return fileService.list(wrappers);
     }
 }
